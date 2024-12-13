@@ -35,4 +35,4 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to server
-        run: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@${{ secrets.SSH_HOST }} 'bash /root/scripts/05_update_frontend.sh'
+        run: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@${{ secrets.SSH_HOST }} 'bash /otp/scripts/05_update_frontend.sh'
