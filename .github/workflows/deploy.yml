@@ -19,4 +19,4 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Test SSH connection
-        run: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host 'echo "SSH connection successful"'
+        run: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@146.190.108.127 'echo "SSH connection successful"'
