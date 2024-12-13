@@ -1,0 +1,22 @@
+name: Test SSH connection 
+
+on:
+  push: 
+    branches:
+      - develop
+
+jobs: 
+  test-ssh-connection: 
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: set up SSH 
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Test SSH connection
+        run: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host 'echo "SSH connection successful"'
